@@ -9,6 +9,60 @@
       "columnValue" : {
         "insertable" : true,
         "updatable" : true,
+        "defaultValue" : "",
+        "type" : "user-defined"
+      },
+      "constraintList" : [ ],
+      "fieldName" : "id",
+      "foreignKey" : false,
+      "generatorType" : "identity",
+      "generatorValue" : null,
+      "hidden" : false,
+      "javaType" : "integer",
+      "length" : 0,
+      "name" : "ID",
+      "nullable" : false,
+      "oldName" : "ID",
+      "partOfAnyRelation" : false,
+      "partOfForeignKey" : false,
+      "partOfPrimaryKey" : true,
+      "partOfUniqueKey" : true,
+      "period" : false,
+      "precision" : 10,
+      "primaryKey" : true,
+      "scale" : 0,
+      "sequenceSchema" : null,
+      "sqlType" : "number",
+      "unique" : true
+    } ],
+    "constraints" : [ ],
+    "entityName" : "Table2ww",
+    "filter" : null,
+    "fullyQualifiedName" : "com.new_vcs_conflicts.bubbledata.Table2ww",
+    "ignoreRefreshAfterInsert" : false,
+    "name" : "TABLE2ww",
+    "oldName" : "TABLE2ww",
+    "primaryKey" : {
+      "columns" : [ "ID" ],
+      "composite" : false,
+      "generator" : {
+        "generatorType" : "identity",
+        "generatorValue" : null,
+        "schemaName" : null
+      },
+      "name" : "PRIMARY",
+      "virtual" : false
+    },
+    "relations" : [ ],
+    "schema" : null,
+    "temporals" : [ ],
+    "type" : "TABLE"
+  }, {
+    "catalog" : "bubbledata",
+    "columns" : [ {
+      "columnValue" : {
+        "insertable" : true,
+        "updatable" : true,
         "defaultValue" : null,
         "type" : "user-defined"
       },
