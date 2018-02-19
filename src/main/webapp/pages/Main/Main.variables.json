@@ -695,5 +695,40 @@
       "package" : "com.new_vcs_conflicts.hrdb.Employee"
     } ],
     "package" : "com.new_vcs_conflicts.hrdb.Employee"
+  },
+  "GoogleapisInvoke" : {
+    "_id" : "wm-GoogleapisInvoke-wm.ServiceVariable-1519037166628",
+    "name" : "GoogleapisInvoke",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "origin",
+      "value" : "Toronto",
+      "type" : "java.lang.String"
+    }, {
+      "target" : "destination",
+      "value" : "Montreal",
+      "type" : "java.lang.String"
+    }, {
+      "target" : "sensor",
+      "value" : "false",
+      "type" : "java.lang.String"
+    } ],
+    "type" : "googleapis.RootResponse",
+    "service" : "googleapis",
+    "operation" : "invoke",
+    "operationId" : "googleapis_RestServiceVirtualController-invoke",
+    "operationType" : "get",
+    "serviceType" : "RestService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "isDefault" : true,
+    "controller" : "RestServiceVirtual"
   }
 }
