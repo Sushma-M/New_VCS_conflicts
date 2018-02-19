@@ -146,6 +146,35 @@
       "sequenceSchema" : null,
       "sqlType" : "number",
       "unique" : true
+    }, {
+      "columnValue" : {
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : "",
+        "type" : "user-defined"
+      },
+      "constraintList" : [ ],
+      "fieldName" : "column2",
+      "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
+      "hidden" : false,
+      "javaType" : "integer",
+      "length" : 0,
+      "name" : "COLUMN2",
+      "nullable" : true,
+      "oldName" : "COLUMN2",
+      "partOfAnyRelation" : false,
+      "partOfForeignKey" : false,
+      "partOfPrimaryKey" : false,
+      "partOfUniqueKey" : false,
+      "period" : false,
+      "precision" : 10,
+      "primaryKey" : false,
+      "scale" : 0,
+      "sequenceSchema" : null,
+      "sqlType" : "number",
+      "unique" : false
     } ],
     "constraints" : [ ],
     "entityName" : "Table2ww",
@@ -174,14 +203,14 @@
     "columns" : [ {
       "columnValue" : {
         "insertable" : true,
-        "updatable" : true,
-        "defaultValue" : null,
+        "updatable" : false,
+        "defaultValue" : "",
         "type" : "user-defined"
       },
-      "constraintList" : null,
+      "constraintList" : [ ],
       "fieldName" : "id",
       "foreignKey" : false,
-      "generatorType" : "identity",
+      "generatorType" : "assigned",
       "generatorValue" : null,
       "hidden" : false,
       "javaType" : "integer",
@@ -192,22 +221,22 @@
       "partOfAnyRelation" : false,
       "partOfForeignKey" : false,
       "partOfPrimaryKey" : true,
-      "partOfUniqueKey" : true,
+      "partOfUniqueKey" : false,
       "period" : false,
       "precision" : 10,
-      "primaryKey" : true,
+      "primaryKey" : false,
       "scale" : 0,
       "sequenceSchema" : null,
       "sqlType" : "number",
-      "unique" : true
+      "unique" : false
     }, {
       "columnValue" : {
         "insertable" : true,
         "updatable" : true,
-        "defaultValue" : null,
+        "defaultValue" : "",
         "type" : "user-defined"
       },
-      "constraintList" : null,
+      "constraintList" : [ ],
       "fieldName" : "name",
       "foreignKey" : false,
       "generatorType" : "assigned",
@@ -216,11 +245,11 @@
       "javaType" : "string",
       "length" : 20,
       "name" : "name",
-      "nullable" : true,
+      "nullable" : false,
       "oldName" : "name",
       "partOfAnyRelation" : false,
       "partOfForeignKey" : false,
-      "partOfPrimaryKey" : false,
+      "partOfPrimaryKey" : true,
       "partOfUniqueKey" : false,
       "period" : false,
       "precision" : 0,
@@ -403,6 +432,35 @@
       "sequenceSchema" : null,
       "sqlType" : "number",
       "unique" : false
+    }, {
+      "columnValue" : {
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : "",
+        "type" : "user-defined"
+      },
+      "constraintList" : [ ],
+      "fieldName" : "column9",
+      "foreignKey" : true,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
+      "hidden" : false,
+      "javaType" : "integer",
+      "length" : 0,
+      "name" : "COLUMN9",
+      "nullable" : true,
+      "oldName" : "COLUMN9",
+      "partOfAnyRelation" : true,
+      "partOfForeignKey" : true,
+      "partOfPrimaryKey" : false,
+      "partOfUniqueKey" : false,
+      "period" : false,
+      "precision" : 10,
+      "primaryKey" : false,
+      "scale" : 0,
+      "sequenceSchema" : null,
+      "sqlType" : "number",
+      "unique" : false
     } ],
     "constraints" : [ ],
     "entityName" : "Bubble",
@@ -412,17 +470,46 @@
     "name" : "bubble",
     "oldName" : "bubble",
     "primaryKey" : {
-      "columns" : [ "id" ],
-      "composite" : false,
+      "columns" : [ "id", "name" ],
+      "composite" : true,
       "generator" : {
-        "generatorType" : "identity",
+        "generatorType" : "assigned",
         "generatorValue" : null,
         "schemaName" : null
       },
       "name" : "PRIMARY",
       "virtual" : false
     },
-    "relations" : [ ],
+    "relations" : [ {
+      "cardinality" : "ManyToOne",
+      "cascadeOptions" : {
+        "cascadeRemove" : "NONE",
+        "cascadeReplace" : true
+      },
+      "columnsUniqueKey" : false,
+      "composite" : false,
+      "fetchOptions" : {
+        "fetch" : true,
+        "columnsFilter" : [ ]
+      },
+      "fieldName" : "table2ww",
+      "mappings" : [ {
+        "sourceColumn" : "COLUMN9",
+        "targetColumn" : "ID"
+      } ],
+      "name" : "FK_TABLE2ww_TO_bubble_IDYf0uy",
+      "parentFetchOptions" : {
+        "fetch" : false,
+        "columnsFilter" : [ ]
+      },
+      "primary" : true,
+      "selfRelation" : false,
+      "sourceColumnsNotUniqueKey" : true,
+      "sourceTable" : "bubble",
+      "targetColumnsUniqueKey" : false,
+      "targetTable" : "TABLE2ww",
+      "virtual" : false
+    } ],
     "schema" : null,
     "temporals" : [ ],
     "type" : "TABLE"

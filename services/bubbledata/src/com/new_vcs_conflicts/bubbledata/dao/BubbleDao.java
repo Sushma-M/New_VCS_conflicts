@@ -16,13 +16,14 @@ import org.springframework.stereotype.Repository;
 import com.wavemaker.runtime.data.dao.WMGenericDaoImpl;
 
 import com.new_vcs_conflicts.bubbledata.Bubble;
+import com.new_vcs_conflicts.bubbledata.BubbleId;
 
 /**
  * Specifies methods used to obtain and modify Bubble related information
  * which is stored in the database.
  */
 @Repository("bubbledata.BubbleDao")
-public class BubbleDao extends WMGenericDaoImpl<Bubble, Integer> {
+public class BubbleDao extends WMGenericDaoImpl<Bubble, BubbleId> {
 
     @Autowired
     @Qualifier("bubbledataTemplate")

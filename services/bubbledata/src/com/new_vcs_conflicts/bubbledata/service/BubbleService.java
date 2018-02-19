@@ -20,6 +20,7 @@ import com.wavemaker.runtime.data.model.AggregationInfo;
 import com.wavemaker.runtime.file.model.Downloadable;
 
 import com.new_vcs_conflicts.bubbledata.Bubble;
+import com.new_vcs_conflicts.bubbledata.BubbleId;
 
 /**
  * Service object for domain model class {@link Bubble}.
@@ -44,7 +45,7 @@ public interface BubbleService {
 	 * @return Bubble associated with the given bubbleId.
      * @throws EntityNotFoundException If no Bubble is found.
 	 */
-	Bubble getById(Integer bubbleId) throws EntityNotFoundException;
+	Bubble getById(BubbleId bubbleId) throws EntityNotFoundException;
 
     /**
 	 * Find and return the Bubble by given id if exists, returns null otherwise.
@@ -52,7 +53,7 @@ public interface BubbleService {
 	 * @param bubbleId The id of the Bubble to get; value cannot be null.
 	 * @return Bubble associated with the given bubbleId.
 	 */
-	Bubble findById(Integer bubbleId);
+	Bubble findById(BubbleId bubbleId);
 
 
 	/**
@@ -73,7 +74,7 @@ public interface BubbleService {
 	 * @return The deleted Bubble.
 	 * @throws EntityNotFoundException if no Bubble found with the given id.
 	 */
-	Bubble delete(Integer bubbleId) throws EntityNotFoundException;
+	Bubble delete(BubbleId bubbleId) throws EntityNotFoundException;
 
     /**
 	 * Deletes an existing Bubble with the given object.

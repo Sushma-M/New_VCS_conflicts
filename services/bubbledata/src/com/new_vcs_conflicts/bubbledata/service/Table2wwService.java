@@ -19,6 +19,7 @@ import com.wavemaker.runtime.data.expression.QueryFilter;
 import com.wavemaker.runtime.data.model.AggregationInfo;
 import com.wavemaker.runtime.file.model.Downloadable;
 
+import com.new_vcs_conflicts.bubbledata.Bubble;
 import com.new_vcs_conflicts.bubbledata.Table2ww;
 
 /**
@@ -150,6 +151,17 @@ public interface Table2wwService {
 	 */
 	Page<Map<String, Object>> getAggregatedValues(AggregationInfo aggregationInfo, Pageable pageable);
 
+    /*
+     * Returns the associated bubbles for given Table2ww id.
+     *
+     * @param id value of id; value cannot be null
+     * @param pageable Details of the pagination information along with the sorting options. If null returns all matching records.
+     * @return Paginated list of associated Bubble instances.
+     *
+     * @see Pageable
+     * @see Page
+     */
+    Page<Bubble> findAssociatedBubbles(Integer id, Pageable pageable);
 
 }
 

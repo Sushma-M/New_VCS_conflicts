@@ -34,6 +34,7 @@ import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 
 import com.new_vcs_conflicts.bubbledata.Bubble;
+import com.new_vcs_conflicts.bubbledata.BubbleId;
 import com.new_vcs_conflicts.bubbledata.service.BubbleService;
 
 
@@ -64,41 +65,53 @@ public class BubbleController {
 	    return bubble;
 	}
 
-    @ApiOperation(value = "Returns the Bubble instance associated with the given id.")
-    @RequestMapping(value = "/{id:.+}", method = RequestMethod.GET)
+@ApiOperation(value = "Returns the Bubble instance associated with the given composite-id.")
+    @RequestMapping(value = "/composite-id", method = RequestMethod.GET)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    public Bubble getBubble(@PathVariable("id") Integer id) throws EntityNotFoundException {
-        LOGGER.debug("Getting Bubble with id: {}" , id);
+    public Bubble getBubble(@RequestParam("id") Integer id,@RequestParam("name") String name) throws EntityNotFoundException {
 
-        Bubble foundBubble = bubbleService.getById(id);
-        LOGGER.debug("Bubble details with id: {}" , foundBubble);
+        BubbleId bubbleId = new BubbleId();
+        bubbleId.setId(id);
+        bubbleId.setName(name);
 
-        return foundBubble;
-    }
-
-    @ApiOperation(value = "Updates the Bubble instance associated with the given id.")
-    @RequestMapping(value = "/{id:.+}", method = RequestMethod.PUT)
-    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    public Bubble editBubble(@PathVariable("id") Integer id, @RequestBody Bubble bubble) throws EntityNotFoundException {
-        LOGGER.debug("Editing Bubble with id: {}" , bubble.getId());
-
-        bubble.setId(id);
-        bubble = bubbleService.update(bubble);
+        LOGGER.debug("Getting Bubble with id: {}" , bubbleId);
+        Bubble bubble = bubbleService.getById(bubbleId);
         LOGGER.debug("Bubble details with id: {}" , bubble);
 
         return bubble;
     }
 
-    @ApiOperation(value = "Deletes the Bubble instance associated with the given id.")
-    @RequestMapping(value = "/{id:.+}", method = RequestMethod.DELETE)
+
+
+    @ApiOperation(value = "Updates the Bubble instance associated with the given composite-id.")
+    @RequestMapping(value = "/composite-id", method = RequestMethod.PUT)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    public boolean deleteBubble(@PathVariable("id") Integer id) throws EntityNotFoundException {
-        LOGGER.debug("Deleting Bubble with id: {}" , id);
+    public Bubble editBubble(@RequestParam("id") Integer id,@RequestParam("name") String name, @RequestBody Bubble bubble) throws EntityNotFoundException {
 
-        Bubble deletedBubble = bubbleService.delete(id);
+        bubble.setId(id);
+        bubble.setName(name);
 
-        return deletedBubble != null;
+        LOGGER.debug("Bubble details with id is updated with: {}" , bubble);
+
+        return bubbleService.update(bubble);
     }
+
+
+    @ApiOperation(value = "Deletes the Bubble instance associated with the given composite-id.")
+    @RequestMapping(value = "/composite-id", method = RequestMethod.DELETE)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public boolean deleteBubble(@RequestParam("id") Integer id,@RequestParam("name") String name) throws EntityNotFoundException {
+
+        BubbleId bubbleId = new BubbleId();
+        bubbleId.setId(id);
+        bubbleId.setName(name);
+
+        LOGGER.debug("Deleting Bubble with id: {}" , bubbleId);
+        Bubble bubble = bubbleService.delete(bubbleId);
+
+        return bubble != null;
+    }
+
 
     /**
      * @deprecated Use {@link #findBubbles(String, Pageable)} instead.

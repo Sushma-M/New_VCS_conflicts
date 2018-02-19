@@ -26,6 +26,7 @@ import com.wavemaker.runtime.data.model.AggregationInfo;
 import com.wavemaker.runtime.file.model.Downloadable;
 
 import com.new_vcs_conflicts.bubbledata.Bubble;
+import com.new_vcs_conflicts.bubbledata.BubbleId;
 
 
 /**
@@ -42,9 +43,9 @@ public class BubbleServiceImpl implements BubbleService {
 
     @Autowired
     @Qualifier("bubbledata.BubbleDao")
-    private WMGenericDao<Bubble, Integer> wmGenericDao;
+    private WMGenericDao<Bubble, BubbleId> wmGenericDao;
 
-    public void setWMGenericDao(WMGenericDao<Bubble, Integer> wmGenericDao) {
+    public void setWMGenericDao(WMGenericDao<Bubble, BubbleId> wmGenericDao) {
         this.wmGenericDao = wmGenericDao;
     }
 
@@ -60,14 +61,14 @@ public class BubbleServiceImpl implements BubbleService {
 
 	@Transactional(readOnly = true, value = "bubbledataTransactionManager")
 	@Override
-	public Bubble getById(Integer bubbleId) throws EntityNotFoundException {
+	public Bubble getById(BubbleId bubbleId) throws EntityNotFoundException {
         LOGGER.debug("Finding Bubble by id: {}", bubbleId);
         return this.wmGenericDao.findById(bubbleId);
     }
 
     @Transactional(readOnly = true, value = "bubbledataTransactionManager")
 	@Override
-	public Bubble findById(Integer bubbleId) {
+	public Bubble findById(BubbleId bubbleId) {
         LOGGER.debug("Finding Bubble by id: {}", bubbleId);
         try {
             return this.wmGenericDao.findById(bubbleId);
@@ -91,7 +92,7 @@ public class BubbleServiceImpl implements BubbleService {
 
     @Transactional(value = "bubbledataTransactionManager")
 	@Override
-	public Bubble delete(Integer bubbleId) throws EntityNotFoundException {
+	public Bubble delete(BubbleId bubbleId) throws EntityNotFoundException {
         LOGGER.debug("Deleting Bubble with id: {}", bubbleId);
         Bubble deleted = this.wmGenericDao.findById(bubbleId);
         if (deleted == null) {

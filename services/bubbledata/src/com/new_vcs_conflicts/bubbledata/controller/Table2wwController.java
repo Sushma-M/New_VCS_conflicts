@@ -33,6 +33,7 @@ import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 
+import com.new_vcs_conflicts.bubbledata.Bubble;
 import com.new_vcs_conflicts.bubbledata.Table2ww;
 import com.new_vcs_conflicts.bubbledata.service.Table2wwService;
 
@@ -151,6 +152,14 @@ public class Table2wwController {
         return table2wwService.getAggregatedValues(aggregationInfo, pageable);
     }
 
+    @RequestMapping(value="/{id:.+}/bubbles", method=RequestMethod.GET)
+    @ApiOperation(value = "Gets the bubbles instance associated with the given id.")
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public Page<Bubble> findAssociatedBubbles(@PathVariable("id") Integer id, Pageable pageable) {
+
+        LOGGER.debug("Fetching all associated bubbles");
+        return table2wwService.findAssociatedBubbles(id, pageable);
+    }
 
     /**
 	 * This setter method should only be used by unit tests
