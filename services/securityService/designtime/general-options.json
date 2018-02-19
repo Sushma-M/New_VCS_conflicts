@@ -1,5 +1,5 @@
 {
-  "enforceSecurity" : false,
+  "enforceSecurity" : true,
   "loginConfig" : {
     "type" : "PAGE",
     "pageName" : "Login",
@@ -17,23 +17,23 @@
   },
   "xssConfig" : {
     "enforceXssSecurity" : false,
-    "policyFile" : null,
+    "policyFile" : "wm-xss-policies.xml",
     "xssFilterStrategy" : "NONE",
     "policyType" : "IMPORT"
   },
   "csrfConfig" : {
-    "enforceCsrfSecurity" : true,
+    "enforceCsrfSecurity" : false,
     "headerName" : "X-WM-XSRF-TOKEN"
   },
   "corsConfig" : {
     "enabled" : false,
     "maxAge" : 1600,
-    "allowCredentials" : false,
     "pathEntries" : [ {
       "name" : "root",
       "path" : "/**",
       "allowedOrigins" : "*"
-    } ]
+    } ],
+    "allowCredentials" : false
   },
   "tokenAuthConfig" : {
     "enabled" : true,
