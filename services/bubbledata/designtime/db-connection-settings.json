@@ -15,6 +15,9 @@
     "table" : "bubble",
     "schema" : null
   }, {
+    "table" : "TABLE2",
+    "schema" : null
+  }, {
     "table" : "TABLE2ww",
     "schema" : null
   } ],
