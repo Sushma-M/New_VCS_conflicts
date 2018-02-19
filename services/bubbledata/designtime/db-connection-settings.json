@@ -12,13 +12,13 @@
   "port" : null,
   "schemaName" : null,
   "tableFilter" : [ {
-    "table" : "bubble",
-    "schema" : null
-  }, {
     "table" : "TABLE2",
     "schema" : null
   }, {
     "table" : "TABLE2ww",
+    "schema" : null
+  }, {
+    "table" : "bubble",
     "schema" : null
   } ],
   "schemaFilter" : [ ],

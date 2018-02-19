@@ -14,8 +14,8 @@
       },
       "constraintList" : null,
       "fieldName" : "id",
-      "foreignKey" : false,
-      "generatorType" : "identity",
+      "foreignKey" : true,
+      "generatorType" : "assigned",
       "generatorValue" : null,
       "hidden" : false,
       "javaType" : "integer",
@@ -23,8 +23,8 @@
       "name" : "ID",
       "nullable" : false,
       "oldName" : "ID",
-      "partOfAnyRelation" : false,
-      "partOfForeignKey" : false,
+      "partOfAnyRelation" : true,
+      "partOfForeignKey" : true,
       "partOfPrimaryKey" : true,
       "partOfUniqueKey" : true,
       "period" : false,
@@ -75,14 +75,43 @@
       "columns" : [ "ID" ],
       "composite" : false,
       "generator" : {
-        "generatorType" : "identity",
+        "generatorType" : "assigned",
         "generatorValue" : null,
         "schemaName" : null
       },
       "name" : "PRIMARY",
       "virtual" : false
     },
-    "relations" : [ ],
+    "relations" : [ {
+      "cardinality" : "OneToOne",
+      "cascadeOptions" : {
+        "cascadeRemove" : "NONE",
+        "cascadeReplace" : true
+      },
+      "columnsUniqueKey" : false,
+      "composite" : false,
+      "fetchOptions" : {
+        "fetch" : true,
+        "columnsFilter" : [ ]
+      },
+      "fieldName" : "table2ww",
+      "mappings" : [ {
+        "sourceColumn" : "ID",
+        "targetColumn" : "ID"
+      } ],
+      "name" : "FK_TABLE2_TO_TABLE2ww_ID_ID",
+      "parentFetchOptions" : {
+        "fetch" : true,
+        "columnsFilter" : [ ]
+      },
+      "primary" : true,
+      "selfRelation" : false,
+      "sourceColumnsNotUniqueKey" : true,
+      "sourceTable" : "TABLE2",
+      "targetColumnsUniqueKey" : false,
+      "targetTable" : "TABLE2ww",
+      "virtual" : false
+    } ],
     "schema" : null,
     "temporals" : [ ],
     "type" : "TABLE"
